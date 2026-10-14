@@ -16,7 +16,6 @@ function raizQuadrada(n) {
 function restoDivisao(dividendo, divisor) { return dividendo % divisor; }
 function fatorial(n) {
   if (n < 0) throw new Error('Fatorial não é definido para números negativos.');
-  if (n === 0 || n === 1) return 1;
   let resultado = 1;
   for (let i = 2; i <= n; i++) { resultado *= i; }
   return resultado;
@@ -62,11 +61,11 @@ function grausParaRadianos(graus) { return graus * (Math.PI / 180); }
 function radianosParaGraus(radianos) { return radianos * (180 / Math.PI); }
 
 // === Bloco 4: Teoria dos Números e Sequências (31-40) ===
-function mdc(a, b) { // Máximo Divisor Comum
+function mdc(a, b) { 
   while(b) { [a, b] = [b, a % b]; }
   return a;
 }
-function mmc(a, b) { // Mínimo Múltiplo Comum
+function mmc(a, b) { 
   return (a * b) / mdc(a, b);
 }
 function isPrimo(n) {
@@ -76,18 +75,15 @@ function isPrimo(n) {
   }
   return true;
 }
-function fibonacci(n) { // Retorna o n-ésimo termo
+function fibonacci(n) { 
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 function produtoArray(numeros) {
-  if (numeros.length === 0) return 1;
   return numeros.reduce((acc, val) => acc * val, 1);
 }
 function clamp(valor, min, max) {
-  if (valor < min) return min;
-  if (valor > max) return max;
-  return valor;
+  return Math.min(Math.max(valor, min), max);
 }
 function isDivisivel(dividendo, divisor) { return dividendo % divisor === 0; }
 function celsiusParaFahrenheit(celsius) { return (celsius * 9/5) + 32; }
@@ -116,7 +112,6 @@ function medianaArray(numeros) {
 function dobro(n) { return n * 2; }
 function triplo(n) { return n * 3; }
 function metade(n) { return n / 2; }
-
 
 // Exportando todas as 50 funções
 module.exports = {
